@@ -20,7 +20,9 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+              
+        collectionView.register(LetterCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
         view.addSubview(collectionView)
         setupCollectionView()
     }
