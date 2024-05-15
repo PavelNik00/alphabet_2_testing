@@ -53,7 +53,24 @@ final class ViewController: UIViewController {
         collectionView.delegate = self
 
     }
-
+    
+    // метод для выделения лейбла в жирный при нажатии на ячейку кложура "Bold"
+    private func makeBold(indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
+        cell?.titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+    }
+    
+    // метод для выделения лейбла в курсив при нажатии на ячейку кложура "Italic"
+    private func makeItalic(indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
+        cell?.titleLabel.font = UIFont.italicSystemFont(ofSize: 30)
+    }
+    
+    // метод для изменения лейбла в подчеркнутый при нажатии на ячейку кложура "Underline"
+    private func makeUnderline(indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
+        cell?.titleLabel.attributedText = NSAttributedString(string: cell?.titleLabel.text ?? "", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -116,6 +133,33 @@ extension ViewController: UICollectionViewDelegate {
         cell?.titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .regular)
     }
     
+    // метод для пунктов меню при нажатии, для IOS 16+ ( контекстное меню для массива ячеек)
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
+        guard indexPaths.count > 0 else {
+            return nil
+        }
+        
+        let indexPath = indexPaths[0]
+        
+        return UIContextMenuConfiguration(actionProvider: { actions in
+            return UIMenu(children: [
+                UIAction(title: "Bold") { [weak self] _ in
+                    self?.makeBold(indexPath: indexPath)
+                },
+                UIAction(title: "Italic") { [weak self] _ in
+                    self?.makeItalic(indexPath: indexPath)
+                },
+                UIAction(title: "Underline") { [weak self] _ in
+                    self?.makeUnderline(indexPath: indexPath)
+                }
+            ])
+        })
+    }
+    
+//    // метод для пунктов меню при нажатии, для IOS 16- (контекстное меню только для 1 ячейки)
+//    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+//        <#code#>
+//    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
