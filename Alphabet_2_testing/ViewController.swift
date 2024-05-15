@@ -98,7 +98,14 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: UICollectionViewDelegate {
-    
+    // метод для настройки параметров ячейки при тапе/выделении ее
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
+        cell?.titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        cell?.titleLabel.textColor = .red
+        
+        cell?.contentView.backgroundColor = .white
+    }
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
