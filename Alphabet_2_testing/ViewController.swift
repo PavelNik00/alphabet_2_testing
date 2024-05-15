@@ -33,6 +33,9 @@ final class ViewController: UIViewController {
         
         view.addSubview(collectionView)
         setupCollectionView()
+        
+        // необходимо указать фолс, если мы хотим чтобы выделение при нажатии было только у 1 ячейки (а не у всех)
+        collectionView.allowsMultipleSelection = false
     }
 
     func setupCollectionView() {
@@ -106,6 +109,13 @@ extension ViewController: UICollectionViewDelegate {
         
         cell?.contentView.backgroundColor = .white
     }
+    
+    // метод для настройки выделения только одной ячейки (все остальные измененные до -- сбрасываются до кастомного варианта)
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? LetterCollectionViewCell
+        cell?.titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .regular)
+    }
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
