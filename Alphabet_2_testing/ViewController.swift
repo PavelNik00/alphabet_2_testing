@@ -26,11 +26,11 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-              
         collectionView.register(LetterCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.register(SupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.register(SupplementaryView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "footer")
         
+        view.backgroundColor = .white
         view.addSubview(collectionView)
         setupCollectionView()
         
@@ -83,12 +83,12 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? LetterCollectionViewCell
         
         cell?.titleLabel.text = letters[indexPath.row]
-        cell?.titleLabel.textColor = .white
+        cell?.titleLabel.textColor = .blue
         cell?.titleLabel.font = .systemFont(ofSize: 24)
         cell?.titleLabel.textAlignment = .center
         cell?.titleLabel.numberOfLines = 1
 
-        cell?.contentView.backgroundColor = .blue
+        cell?.contentView.backgroundColor = .white
         cell?.contentView.alpha = 0.5
         
         return cell!
@@ -111,7 +111,7 @@ extension ViewController: UICollectionViewDataSource {
         view.titleLabel.alpha = 0.5
         view.titleLabel.font = .systemFont(ofSize: 30)
         
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         
         return view
     }

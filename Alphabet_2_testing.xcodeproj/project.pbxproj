@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E95415442BF6777100562193 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E95415432BF6777100562193 /* README.md */; };
 		E9A6D2F82BF37F7A00F553E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A6D2F72BF37F7A00F553E4 /* AppDelegate.swift */; };
 		E9A6D2FA2BF37F7A00F553E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A6D2F92BF37F7A00F553E4 /* SceneDelegate.swift */; };
 		E9A6D2FC2BF37F7A00F553E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A6D2FB2BF37F7A00F553E4 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E95415432BF6777100562193 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E9A6D2F42BF37F7A00F553E4 /* Alphabet_2_testing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alphabet_2_testing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9A6D2F72BF37F7A00F553E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9A6D2F92BF37F7A00F553E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 		E9A6D2EB2BF37F7A00F553E4 = {
 			isa = PBXGroup;
 			children = (
+				E95415432BF6777100562193 /* README.md */,
 				E9A6D2F62BF37F7A00F553E4 /* Alphabet_2_testing */,
 				E9A6D2F52BF37F7A00F553E4 /* Products */,
 			);
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95415442BF6777100562193 /* README.md in Resources */,
 				E9A6D3012BF37F7C00F553E4 /* Assets.xcassets in Resources */,
 				E9A6D3042BF37F7C00F553E4 /* Base in Resources */,
 			);
